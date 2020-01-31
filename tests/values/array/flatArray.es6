@@ -5,22 +5,27 @@
  * file that was distributed with this source code.
  */
 
-import { resolve } from '../loader';
+import load from '../load';
 
-export default new Promise( ( _resolve, reject ) => resolve( [
+export default ( async () => {
 
-    'array/index', 'array/flatArray', 'array/deepArray',
-    'object/index', 'object/emptyObject', 'object/flatObject', 'object/deepObject',
+    return Object.values( await load( [
 
-], true, false ).then( values => {
+        '*',
+        '!array/flatArray',
+        '!array/deepArray',
+        '!object/emptyObject',
+        '!object/flatObject',
+        '!object/deepObject',
 
-    values.push( [ 'flat', 'array' ] );
-    values.push( [ 'deep', [ 'array' ] ] );
+    ] ) ).concat( [
 
-    values.push( {} );
-    values.push( { flat: 'object' } );
-    values.push( { deep: { nonFlat: 'object' } } );
+        [ 'flat', 'array' ],
+        [ 'deep', [ 'array' ] ],
+        {},
+        { flat: 'object' },
+        { deep: { nonFlat: 'object' } },
 
-    _resolve( values );
+    ] );
 
-}, reject ) );
+} )();

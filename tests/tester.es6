@@ -6,7 +6,7 @@
  */
 
 import { expect } from 'chai';
-import { resolve } from './values/loader';
+import load from './values/load';
 
 export default {
 
@@ -47,53 +47,48 @@ export default {
 
     },
 
-    test( test, types, validator ) {
+    async test( test, validator, validRules, invalidRules ) {
 
-        resolve( types ).then( valid => resolve( types, true ).then( invalid => {
+        const valid = await load( validRules );
+        const invalid = await load( invalidRules );
 
-            if ( 'undefined' === typeof this.tests ) {
+        if ( 'undefined' === typeof this.tests ) {
 
-                this.tests = {};
+            this.tests = {};
 
-            }
+        }
 
-            if ( ! this.tests.hasOwnProperty( test ) ) {
+        if ( ! this.tests.hasOwnProperty( test ) ) {
 
-                this.tests[ test ] = {};
+            this.tests[ test ] = {};
 
-            }
+        }
 
-            const register = ( maps, truthy ) => {
+        const register = ( map, truthy ) => {
 
-                for ( const map of maps ) {
+            for ( const name in map ) {
 
-                    for ( const name in map ) {
+                if ( ! map.hasOwnProperty( name ) ) {
 
-                        if ( ! map.hasOwnProperty( name ) ) {
-
-                            continue;
-
-                        }
-
-                        this.tests[ test ][ `returns ${ truthy ? 'TRUE' : 'FALSE' } for ${ name }` ] = () => expect(
-
-                            validator( map[ name ] ),
-                            `Actual value: (${ typeof map[ name ] }) ${ JSON.stringify( map[ name ] ) }\n`
-
-                        ).to.be[ truthy ? 'true' : 'false' ];
-
-                    }
+                    continue;
 
                 }
 
-            };
+                this.tests[ test ][ `returns ${ truthy ? 'TRUE' : 'FALSE' } for ${ name }` ] = () => expect(
 
-            register( valid, true );
-            register( invalid, false );
+                    validator( map[ name ] ),
+                    `Actual value: (${ typeof map[ name ] }) ${ JSON.stringify( map[ name ] ) }\n`
 
-            this.run();
+                ).to.be[ truthy ? 'true' : 'false' ];
 
-        } ) );
+            }
+
+        };
+
+        register( valid, true );
+        register( invalid, false );
+
+        this.run();
 
     }
 

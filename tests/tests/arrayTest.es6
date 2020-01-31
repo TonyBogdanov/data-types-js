@@ -8,4 +8,4 @@
 import provider from '../tester';
 import isArray from '../../src/is/isArray';
 
-provider.test( 'isArray', 'array', isArray );
+provider.test( 'isArray', isArray, [ 'array' ], [ '*', '!array' ] );

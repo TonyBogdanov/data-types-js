@@ -5,13 +5,15 @@
  * file that was distributed with this source code.
  */
 
-import { resolve } from '../loader';
+import load from '../load';
 
-export default new Promise( ( _resolve, reject ) => resolve( 'object/flatObject' ).then( ( [ object ] ) => {
+export default ( async() => {
+
+    const object = Object.values( await load( [ 'object/flatObject' ] ) )[0];
 
     object.deeper = Object.assign( {}, object );
     object.deep = Object.assign( {}, object );
 
-    _resolve( object );
+    return object;
 
-}, reject ) );
+} )();

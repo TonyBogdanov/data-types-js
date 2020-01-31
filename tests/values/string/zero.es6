@@ -5,10 +5,4 @@
  * file that was distributed with this source code.
  */
 
-import _undefined from './undefined';
-
-export default {
-
-    'undefined': _undefined,
-
-};
+export default '0';

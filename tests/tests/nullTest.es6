@@ -8,4 +8,4 @@
 import tester from '../tester';
 import isNull from '../../src/is/isNull';
 
-tester.test( 'isNull', 'null', isNull );
+tester.test( 'isNull', isNull, [ 'null' ], [ '*', '!null' ] );

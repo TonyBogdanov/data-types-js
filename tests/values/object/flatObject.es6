@@ -5,18 +5,22 @@
  * file that was distributed with this source code.
  */
 
-import { resolve } from '../loader';
+import load from '../load';
 
-export default new Promise( ( _resolve, reject ) => resolve( [
-
-    'array/index', 'array/flatArray', 'array/deepArray',
-    'object/index', 'object/emptyObject', 'object/flatObject', 'object/deepObject',
-
-], true, false ).then( values => {
+export default ( async () => {
 
     const object = {};
 
-    for ( const value of values ) {
+    for ( const value of Object.values( await load( [
+
+        '*',
+        '!array/flatArray',
+        '!array/deepArray',
+        '!object/emptyObject',
+        '!object/flatObject',
+        '!object/deepObject',
+
+    ] ) ) ) {
 
         object[ Math.random() ] = value;
 
@@ -29,6 +33,6 @@ export default new Promise( ( _resolve, reject ) => resolve( [
     object[ Math.random() ] = { flat: 'object' };
     object[ Math.random() ] = { deep: { nonFlat: 'object' } };
 
-    _resolve( object );
+    return object;
 
-}, reject ) );
+} )();

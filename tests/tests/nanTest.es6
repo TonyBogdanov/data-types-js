@@ -8,4 +8,4 @@
 import provider from '../tester';
 import isNaN from '../../src/is/isNaN';
 
-provider.test( 'isNaN', 'nan', isNaN );
+provider.test( 'isNaN', isNaN, [ 'nan' ], [ '*', '!nan' ] );

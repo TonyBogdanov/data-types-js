@@ -5,12 +5,8 @@
  * file that was distributed with this source code.
  */
 
-import positive from './positive';
-import negative from './negative';
+import isBoolean from './isBoolean';
+import isNumber from './isNumber';
+import isString from './isString';
 
-export default {
-
-    'infinite positive': positive,
-    'infinite negative': negative,
-
-};
+export default value => isBoolean( value ) || isNumber( value ) || isString( value );

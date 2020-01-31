@@ -8,4 +8,4 @@
 import provider from '../tester';
 import isString from '../../src/is/isString';
 
-provider.test( 'isString', 'string', isString );
+provider.test( 'isString', isString, [ 'string' ], [ '*', '!string' ] );

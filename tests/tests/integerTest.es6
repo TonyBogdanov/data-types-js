@@ -8,4 +8,4 @@
 import provider from '../tester';
 import isInteger from '../../src/is/isInteger';
 
-provider.test( 'isInteger', 'integer', isInteger );
+provider.test( 'isInteger', isInteger, [ 'integer' ], [ '*', '!integer' ] );

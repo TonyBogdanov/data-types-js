@@ -5,7 +5,11 @@
  * file that was distributed with this source code.
  */
 
-import { resolve } from '../loader';
+import load from '../load';
 
-export default new Promise( ( _resolve, reject ) => resolve( 'array/flatArray' ).then( flatArray =>
-    _resolve( flatArray.concat( [ flatArray, flatArray.concat( [ flatArray ] ) ] ) ), reject ) );
+export default ( async () => {
+
+    const flatArray = Object.values( await load( [ 'array/flatArray' ] ) )[0];
+    return flatArray.concat( [ flatArray, flatArray.concat( [ flatArray ] ) ] );
+
+} )();

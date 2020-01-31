@@ -8,4 +8,4 @@
 import provider from '../tester';
 import isFunction from '../../src/is/isFunction';
 
-provider.test( 'isFunction', 'function', isFunction );
+provider.test( 'isFunction', isFunction, [ 'function' ], [ '*', '!function' ] );

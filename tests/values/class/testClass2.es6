@@ -5,12 +5,14 @@
  * file that was distributed with this source code.
  */
 
-import positive from './positive';
-import negative from './negative';
+class TestClass2 {
 
-export default {
+    constructor() {
 
-    'integer positive': positive,
-    'integer negative': negative,
+        this.methodProperty = 1;
 
-};
+    }
+
+}
+
+export default new TestClass2;

@@ -8,4 +8,4 @@
 import provider from '../tester';
 import isFloat from '../../src/is/isFloat';
 
-provider.test( 'isFloat', 'float', isFloat );
+provider.test( 'isFloat', isFloat, [ 'float' ], [ '*', '!float' ] );

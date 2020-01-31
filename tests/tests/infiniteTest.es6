@@ -8,4 +8,4 @@
 import provider from '../tester';
 import isInfinite from '../../src/is/isInfinite';
 
-provider.test( 'isInfinite', 'infinite', isInfinite );
+provider.test( 'isInfinite', isInfinite, [ 'infinite' ], [ '*', '!infinite' ] );

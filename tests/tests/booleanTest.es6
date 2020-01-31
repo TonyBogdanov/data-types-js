@@ -8,4 +8,4 @@
 import provider from '../tester';
 import isBoolean from '../../src/is/isBoolean';
 
-provider.test( 'isBoolean', 'boolean', isBoolean );
+provider.test( 'isBoolean', isBoolean, [ 'boolean' ], [ '*', '!boolean' ] );

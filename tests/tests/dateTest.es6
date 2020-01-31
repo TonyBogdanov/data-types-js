@@ -8,4 +8,4 @@
 import provider from '../tester';
 import isDate from '../../src/is/isDate';
 
-provider.test( 'isDate', 'date', isDate );
+provider.test( 'isDate', isDate, [ 'date' ], [ '*', '!date' ] );

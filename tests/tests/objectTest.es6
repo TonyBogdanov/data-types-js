@@ -8,4 +8,4 @@
 import provider from '../tester';
 import isObject from '../../src/is/isObject';
 
-provider.test( 'isObject', 'object', isObject );
+provider.test( 'isObject', isObject, [ 'object' ], [ '*', '!object' ] );

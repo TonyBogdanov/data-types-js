@@ -1,13 +1,13 @@
 {
   "name": "data-types-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tree-shakeable JS type checking",
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --require @babel/register --delay 'tests/**/*.es6'"
+    "test": "./node_modules/mocha/bin/mocha --require ./babel-register.js --delay 'tests/tests/**/*.es6'"
   },
   "repository": {
     "type": "git",
@@ -23,8 +23,11 @@
     "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
     "@babel/node": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.7.7",
     "@babel/register": "^7.7.7",
+    "@babel/runtime": "^7.8.4",
     "chai": "^4.2.0",
     "mocha": "^6.2.2"
   }

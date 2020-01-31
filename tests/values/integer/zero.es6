@@ -5,12 +5,4 @@
  * file that was distributed with this source code.
  */
 
-import positive from './positive';
-import negative from './negative';
-
-export default {
-
-    'float positive': positive,
-    'float negative': negative,
-
-};
+export default 0;

@@ -8,4 +8,4 @@
 import provider from '../tester';
 import isNumber from '../../src/is/isNumber';
 
-provider.test( 'isNumber', [ 'integer', 'float', 'infinite' ], isNumber );
+provider.test( 'isNumber', isNumber, [ 'integer', 'float', 'infinite' ], [ '*', '!integer', '!float', '!infinite' ] );

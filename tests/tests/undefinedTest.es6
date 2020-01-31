@@ -8,4 +8,4 @@
 import provider from '../tester';
 import isUndefined from '../../src/is/isUndefined';
 
-provider.test( 'isUndefined', 'undefined', isUndefined );
+provider.test( 'isUndefined', isUndefined, [ 'undefined' ], [ '*', '!undefined' ] );
