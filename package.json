@@ -1,6 +1,6 @@
 {
   "name": "data-types-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Tree-shakeable JS type checking",
   "main": "index.js",
   "directories": {
@@ -19,6 +19,7 @@
     "url": "https://github.com/TonyBogdanov/data-types-js/issues"
   },
   "homepage": "https://github.com/TonyBogdanov/data-types-js#readme",
+  "sideEffects": false,
   "devDependencies": {
     "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
